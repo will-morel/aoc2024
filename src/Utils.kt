@@ -19,3 +19,12 @@ fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteA
  * The cleaner shorthand for printing output.
  */
 fun Any?.println() = println(this)
+
+
+fun Any?.test(expected: Any) {
+    try {
+        return check(this == expected)
+    } catch(e: IllegalStateException) {
+        println("expected $expected but was $this")
+    }
+}

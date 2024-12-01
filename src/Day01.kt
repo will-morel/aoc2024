@@ -1,21 +1,35 @@
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
+
+    fun List<String>.splitAndSort(size: Int): Pair<List<Int>, List<Int>> =
+        Pair(
+            this.map { it.substring(0, size).toInt() }.sorted(),
+            this.map { it.substring(it.length-size, it.length).toInt() }.sorted()
+        )
+
+    fun part1(input: List<String>, size: Int): Int =
+        input.splitAndSort(size).let { pairs ->
+            pairs.first.mapIndexed { index, value ->
+                kotlin.math.abs(pairs.second[index] - value)
+            }.sum()
+        }
+
+    fun part2(input: List<String>, size: Int): Int {
+        val pairs = input.splitAndSort(size)
+        return pairs.first.fold(0) { acc, value ->
+            acc + (value * pairs.second.count{it == value})
+        }
     }
 
-    fun part2(input: List<String>): Int {
-        return input.size
-    }
+    readInput("Day01_test")
+        .splitAndSort(1)
+        .test(Pair(
+            listOf(1, 2, 3, 3, 3, 4),
+            listOf(3, 3, 3, 4, 5, 9),
+        ))
 
-    // Test if implementation meets criteria from the description, like:
-    check(part1(listOf("test_input")) == 1)
+    part1(readInput("Day01_test"), 1).test(11)
 
-    // Or read a large test input from the `src/Day01_test.txt` file:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
-
-    // Read the input from the `src/Day01.txt` file.
     val input = readInput("Day01")
-    part1(input).println()
-    part2(input).println()
+    part1(input, 5).println()
+    part2(input, 5).println()
 }
