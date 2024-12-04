@@ -1,3 +1,9 @@
+package day03
+
+import println
+import readInput
+import test
+
 typealias Operation = Pair<Int, Int>
 
 fun main() {
@@ -73,7 +79,7 @@ fun main() {
             ),
         )
 
-    readInput("Day03_test")
+    readInput("day03/test")
         .first()
         .getOperations()
         .test(
@@ -86,10 +92,10 @@ fun main() {
         )
 
     part1(
-        readInput("Day03_test"),
+        readInput("day03/test"),
     ).test(161)
 
-    readInput("Day03_test2")
+    readInput("day03/test2")
         .first()
         .getEnabledOperations()
         .test(
@@ -100,10 +106,10 @@ fun main() {
         )
 
     part2(
-        readInput("Day03_test2"),
+        readInput("day03/test2"),
     ).test(48)
 
-    val input = readInput("Day03")
+    val input = readInput("day03/input")
     part1(input).println()
     part2(input).println()
 }

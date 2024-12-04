@@ -1,3 +1,9 @@
+package day01
+
+import println
+import readInput
+import test
+
 fun main() {
     fun List<String>.splitAndSort(size: Int): Pair<List<Int>, List<Int>> =
         Pair(
@@ -26,7 +32,7 @@ fun main() {
         }
     }
 
-    readInput("Day01_test")
+    readInput("day01/test")
         .splitAndSort(1)
         .test(
             Pair(
@@ -35,9 +41,9 @@ fun main() {
             ),
         )
 
-    part1(readInput("Day01_test"), 1).test(11)
+    part1(readInput("day01/test"), 1).test(11)
 
-    val input = readInput("Day01")
+    val input = readInput("day01/input")
     part1(input, 5).println()
     part2(input, 5).println()
 }

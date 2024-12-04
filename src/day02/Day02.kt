@@ -1,3 +1,8 @@
+package day02
+
+import println
+import readInput
+import test
 import kotlin.math.abs
 
 fun main() {
@@ -45,9 +50,9 @@ fun main() {
     listOf(1, 3, 2, 4, 5).hasOneBadLevelOnly().test(true)
     listOf(9, 7, 6, 2, 1).hasOneBadLevelOnly().test(false)
 
-    part1(readInput("Day02_test")).test(2)
+    part1(readInput("day02/test")).test(2)
 
-    val input = readInput("Day02")
+    val input = readInput("day02/input")
     part1(input).println()
     part2(input).println()
 }
