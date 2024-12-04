@@ -32,16 +32,20 @@ fun main() {
         }
     }
 
-    readInput("day01/test")
-        .splitAndSort(1)
-        .test(
-            Pair(
-                listOf(1, 2, 3, 3, 3, 4),
-                listOf(3, 3, 3, 4, 5, 9),
-            ),
-        )
+    fun test() {
+        readInput("day01/test")
+            .splitAndSort(1)
+            .test(
+                Pair(
+                    listOf(1, 2, 3, 3, 3, 4),
+                    listOf(3, 3, 3, 4, 5, 9),
+                ),
+            )
 
-    part1(readInput("day01/test"), 1).test(11)
+        part1(readInput("day01/test"), 1).test(11)
+    }
+
+    test()
 
     val input = readInput("day01/input")
     part1(input, 5).println()

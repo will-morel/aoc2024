@@ -60,54 +60,58 @@ fun main() {
                 it.compute()
             }
 
-    Operation(2, 4)
-        .compute()
-        .test(8)
+    fun test() {
+        Operation(2, 4)
+            .compute()
+            .test(8)
 
-    "mul(2,4)"
-        .getOperations()
-        .test(
-            listOf(Operation(2, 4)),
-        )
+        "mul(2,4)"
+            .getOperations()
+            .test(
+                listOf(Operation(2, 4)),
+            )
 
-    "mul(2,4)------mul(4,8)"
-        .getOperations()
-        .test(
-            listOf(
-                Operation(2, 4),
-                Operation(4, 8),
-            ),
-        )
+        "mul(2,4)------mul(4,8)"
+            .getOperations()
+            .test(
+                listOf(
+                    Operation(2, 4),
+                    Operation(4, 8),
+                ),
+            )
 
-    readInput("day03/test")
-        .first()
-        .getOperations()
-        .test(
-            listOf(
-                Operation(2, 4),
-                Operation(5, 5),
-                Operation(11, 8),
-                Operation(8, 5),
-            ),
-        )
+        readInput("day03/test")
+            .first()
+            .getOperations()
+            .test(
+                listOf(
+                    Operation(2, 4),
+                    Operation(5, 5),
+                    Operation(11, 8),
+                    Operation(8, 5),
+                ),
+            )
 
-    part1(
-        readInput("day03/test"),
-    ).test(161)
+        part1(
+            readInput("day03/test"),
+        ).test(161)
 
-    readInput("day03/test2")
-        .first()
-        .getEnabledOperations()
-        .test(
-            listOf(
-                Operation(2, 4),
-                Operation(8, 5),
-            ),
-        )
+        readInput("day03/test2")
+            .first()
+            .getEnabledOperations()
+            .test(
+                listOf(
+                    Operation(2, 4),
+                    Operation(8, 5),
+                ),
+            )
 
-    part2(
-        readInput("day03/test2"),
-    ).test(48)
+        part2(
+            readInput("day03/test2"),
+        ).test(48)
+    }
+
+    test()
 
     val input = readInput("day03/input")
     part1(input).println()

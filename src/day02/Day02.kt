@@ -33,24 +33,28 @@ fun main() {
 
     fun part2(input: List<String>) = input.map { it.toIntList() }.count { it.isSafeOrWithOneBadLevelOnly() }
 
-    "1 2 4 5".toIntList().test(listOf(1, 2, 4, 5))
+    fun test() {
+        "1 2 4 5".toIntList().test(listOf(1, 2, 4, 5))
 
-    listOf(1, 2, 3).isAllIncreasing().test(true)
-    listOf(2, 3, 1).isAllIncreasing().test(false)
+        listOf(1, 2, 3).isAllIncreasing().test(true)
+        listOf(2, 3, 1).isAllIncreasing().test(false)
 
-    listOf(1, 2, 3).isAllDecreasing().test(false)
-    listOf(2, 3, 1).isAllDecreasing().test(true)
+        listOf(3, 2, 1).isAllDecreasing().test(true)
+        listOf(2, 3, 1).isAllDecreasing().test(false)
 
-    listOf(1, 2, 3).hasValidStep().test(true)
-    listOf(1, 2, 6).hasValidStep().test(false)
+        listOf(1, 2, 3).hasValidStep().test(true)
+        listOf(1, 2, 6).hasValidStep().test(false)
 
-    listOf(3, 2, 1).hasValidStep().test(true)
-    listOf(6, 2, 1).hasValidStep().test(false)
+        listOf(3, 2, 1).hasValidStep().test(true)
+        listOf(6, 2, 1).hasValidStep().test(false)
 
-    listOf(1, 3, 2, 4, 5).hasOneBadLevelOnly().test(true)
-    listOf(9, 7, 6, 2, 1).hasOneBadLevelOnly().test(false)
+        listOf(1, 3, 2, 4, 5).hasOneBadLevelOnly().test(true)
+        listOf(9, 7, 6, 2, 1).hasOneBadLevelOnly().test(false)
 
-    part1(readInput("day02/test")).test(2)
+        part1(readInput("day02/test")).test(2)
+    }
+
+    test()
 
     val input = readInput("day02/input")
     part1(input).println()
